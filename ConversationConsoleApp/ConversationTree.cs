@@ -32,7 +32,11 @@ namespace DSATrees
                 }
                 else if (current.children.Count() > 0)
                     foreach (ConversationNode node in current.children)
-                           return Find(node, Phrase);
+                    {
+                        var found = Find(node, Phrase);
+                        if (found != null)
+                            return found;
+                    }
             }
             return null;
         }
